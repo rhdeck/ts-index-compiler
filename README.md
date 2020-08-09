@@ -34,7 +34,7 @@ Auto-generate an index.ts file from typescript source files - build your librari
 
 • **base**: *"."* = "."
 
-*Defined in [index.ts:4](https://github.com/rhdeck/ts-index-compiler/blob/dbded5e/src/index.ts#L4)*
+*Defined in [index.ts:4](https://github.com/rhdeck/ts-index-compiler/blob/46c5641/src/index.ts#L4)*
 
 Defined in make-index.ts:5
 
@@ -60,7 +60,7 @@ Defined in make-index.ts:78
 
 ▸ **getExports**(`base`: string, `context`: string): *[string[], string[]][]*
 
-*Defined in [index.ts:5](https://github.com/rhdeck/ts-index-compiler/blob/dbded5e/src/index.ts#L5)*
+*Defined in [index.ts:5](https://github.com/rhdeck/ts-index-compiler/blob/46c5641/src/index.ts#L5)*
 
 **Parameters:**
 
@@ -77,7 +77,7 @@ ___
 
 ▸ **makeIndex**(`exports`: [string[], string[]][], `indexPath`: string): *void*
 
-*Defined in [index.ts:53](https://github.com/rhdeck/ts-index-compiler/blob/dbded5e/src/index.ts#L53)*
+*Defined in [index.ts:53](https://github.com/rhdeck/ts-index-compiler/blob/46c5641/src/index.ts#L53)*
 
 **Parameters:**
 
