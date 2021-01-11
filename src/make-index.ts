@@ -23,34 +23,42 @@ export function getExports(
           <[string[], string[]]>[[], []]
         );
       }
-      const moduleName = basename(file, ".ts");
+      const moduleName = basename(file).replace(/\.[^/.]+$/, "");
       const path = join(__dirname, base, file);
       if (!lstatSync(path).isFile()) return [[], []];
-      const out = require(path);
-      const keys = Object.keys(out);
-      if (!keys.length) return [['require("./' + moduleName + '");'], []];
-      let i = "import ";
-      let e: string[] = [];
-      if (keys.includes("default")) {
-        i = i + moduleName + " ";
-        e.push(moduleName);
+      try {
+        const out = require(path);
+        const keys = Object.keys(out);
+        if (!keys.length) return [['require("./' + moduleName + '");'], []];
+        let i = "import ";
+        let e: string[] = [];
+        if (keys.includes("default")) {
+          i = i + moduleName + " ";
+          e.push(moduleName);
+        }
+        const namedExports = keys.filter((key) => key !== "default");
+        if (namedExports.length) {
+          if (keys.includes("default")) i = i + ",";
+          i =
+            i +
+            " {" +
+            namedExports
+              .map((x) => x + " as " + moduleName + "_" + x)
+              .join(",") +
+            "}";
+          e.push(
+            ...namedExports.map((x) => {
+              return moduleName + "_" + x;
+            })
+          );
+        }
+        i = i + " from " + '"./' + moduleName + '";';
+        return <[string[], string[]]>[[i], e];
+      } catch (e) {
+        console.error("That was not good at all");
+        console.error(e);
+        process.exit(1);
       }
-      const namedExports = keys.filter((key) => key !== "default");
-      if (namedExports.length) {
-        if (keys.includes("default")) i = i + ",";
-        i =
-          i +
-          " {" +
-          namedExports.map((x) => x + " as " + moduleName + "_" + x).join(",") +
-          "}";
-        e.push(
-          ...namedExports.map((x) => {
-            return moduleName + "_" + x;
-          })
-        );
-      }
-      i = i + " from " + '"./' + moduleName + '";';
-      return <[string[], string[]]>[[i], e];
     })
     .filter(Boolean);
 }
