@@ -29,7 +29,7 @@ export function getExports(
       try {
         const out = require(path);
         const keys = Object.keys(out);
-        if (!keys.length) return [['require("./' + moduleName + '");'], []];
+        if (!keys.length) return [['import "./' + moduleName + '";'], []];
         let i = "import ";
         let e: string[] = [];
         if (keys.includes("default")) {
@@ -55,8 +55,9 @@ export function getExports(
         i = i + " from " + '"./' + moduleName + '";';
         return <[string[], string[]]>[[i], e];
       } catch (e) {
-        console.error("That was not good at all");
-        console.error(e);
+        console.error("That was not good at all at path", path);
+        console.error(e.message);
+        console.error(JSON.stringify(e));
         process.exit(1);
       }
     })
