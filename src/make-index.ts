@@ -56,7 +56,7 @@ export function getExports(
         return <[string[], string[]]>[[i], e];
       } catch (e) {
         console.error("That was not good at all at path", path);
-        console.error(e.message);
+        console.error((e as Error).message);
         console.error(JSON.stringify(e));
         process.exit(1);
       }

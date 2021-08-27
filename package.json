@@ -7,7 +7,7 @@
   "scripts": {
     "pre-commit": "(git-branch-is --not main || (set -u && echo $ALLOWMAIN)) && yarn test",
     "test": "tsc --noEmit",
-    "build": "tsc && chmod +x lib/bin.js",
+    "build": "tsc && chmod +x lib/bin.js && yarn pack -f package.tgz",
     "docs": "typedoc --theme markdown --readme none --mode file --excludeNotExported --includeVersion --out docstemp && commanderdoc markdown lib/bin.js -o docstemp/__cli.md --cli-name \"npx `npx jq -r .name package.json`\" && rm README.md ; mv docstemp/README.md docstemp/_library.md && concat-md docstemp > README.md && rm -rf docstemp",
     "prepublishOnly": "yarn build && yarn docs && git commit README.md -m \"docs: updating docs\" && git push"
   },
@@ -32,7 +32,7 @@
     "husky": "^4.2.5",
     "typedoc": "^0.17.8",
     "typedoc-plugin-markdown": "^2.4.0",
-    "typescript": "^4.1.5"
+    "typescript": "^4.4.2"
   },
   "files": [
     "src",
