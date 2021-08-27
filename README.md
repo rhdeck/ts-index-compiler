@@ -13,7 +13,7 @@ Auto-generate an index.ts file from typescript source files - build your librari
 <a name="_librarymd"></a>
 
 
-# ts-index-compiler - v1.1.1
+# ts-index-compiler - v1.1.2
 
 ## Index
 
@@ -34,9 +34,9 @@ Auto-generate an index.ts file from typescript source files - build your librari
 
 • **base**: *"."* = "."
 
-*Defined in [index.ts:4](https://github.com/rhdeck/ts-index-compiler/blob/af239bd/src/index.ts#L4)*
+*Defined in [index.ts:4](https://github.com/rhdeck/ts-index-compiler/blob/2d66df8/src/index.ts#L4)*
 
-*Defined in [make-index.ts:5](https://github.com/rhdeck/ts-index-compiler/blob/af239bd/src/make-index.ts#L5)*
+*Defined in [make-index.ts:5](https://github.com/rhdeck/ts-index-compiler/blob/2d66df8/src/make-index.ts#L5)*
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 • **out**: *string*
 
-*Defined in [make-index.ts:86](https://github.com/rhdeck/ts-index-compiler/blob/af239bd/src/make-index.ts#L86)*
+*Defined in [make-index.ts:86](https://github.com/rhdeck/ts-index-compiler/blob/2d66df8/src/make-index.ts#L86)*
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 • **x**: *[string[], string[]][]* = getExports(".")
 
-*Defined in [make-index.ts:87](https://github.com/rhdeck/ts-index-compiler/blob/af239bd/src/make-index.ts#L87)*
+*Defined in [make-index.ts:87](https://github.com/rhdeck/ts-index-compiler/blob/2d66df8/src/make-index.ts#L87)*
 
 ## Functions
 
@@ -60,7 +60,7 @@ ___
 
 ▸ **getExports**(`base`: string, `context`: string): *[][]*
 
-*Defined in [index.ts:5](https://github.com/rhdeck/ts-index-compiler/blob/af239bd/src/index.ts#L5)*
+*Defined in [index.ts:5](https://github.com/rhdeck/ts-index-compiler/blob/2d66df8/src/index.ts#L5)*
 
 **Parameters:**
 
@@ -77,7 +77,7 @@ ___
 
 ▸ **makeIndex**(`exports`: [][], `indexPath`: string): *void*
 
-*Defined in [index.ts:53](https://github.com/rhdeck/ts-index-compiler/blob/af239bd/src/index.ts#L53)*
+*Defined in [index.ts:53](https://github.com/rhdeck/ts-index-compiler/blob/2d66df8/src/index.ts#L53)*
 
 **Parameters:**
 
