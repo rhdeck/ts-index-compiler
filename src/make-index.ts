@@ -11,7 +11,8 @@ export function getExports(
   return files
     .filter(
       (file: string) =>
-        base !== "." || !["index.ts", basename(__filename)].includes(file)
+        base !== "." ||
+        !["index.ts", basename(__filename), "bin.ts"].includes(file)
     )
     .map<[string[], string[]]>((file: string) => {
       if (lstatSync(join(__dirname, base, file)).isDirectory()) {
